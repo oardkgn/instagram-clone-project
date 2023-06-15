@@ -1,5 +1,5 @@
-import FormSection from "../components/loginPage/FormSection";
-import ScreenShotSlide from "../components/loginPage/ScreenShotSlide";
+import FormSection from "../../components/loginPage/FormSection";
+import ScreenShotSlide from "../../components/loginPage/ScreenShotSlide";
 
 function LoginPage() {
   return (

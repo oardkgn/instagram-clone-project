@@ -1,17 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
+import {useField} from "formik";
+import classNames from "classnames";
 
-function Input({ type, value, onChange, label, id }) {
+function Input({ type, label, id, ...props }) {
+
+  const [field, meta, helpers] = useField(props)
   const [showing, setShowing] = useState(false);
-  const [showBtn, setShowBtn] = useState(false);
+
   const [typeCurrent, setTypeCurrent] = useState(type);
 
-  useEffect(() => {
-    if (id == 2 && value) {
-      setShowBtn(true);
-    } else {
-      setShowBtn(false);
-    }
-  }, [value]);
+
 
   function moveCursorToEnd(e) {
     setTimeout(function(){
@@ -25,25 +23,23 @@ function Input({ type, value, onChange, label, id }) {
     <label className="block relative" htmlFor={`input${id}`}>
       <input
         id={`input${id}`}
-        className={
-          id == 1
-            ? "w-full valid:pt-[16px] valid:pb-[4px] transition-all text-xs peer outline-none bg-[#FAFAFA] mb-[0.3rem] focus:border-[#A8A8A8] border border-inactive_line rounded p-[10px] pl-[8px] "
-            : "w-full pr-14 valid:pt-[16px] valid:pb-[4px] transition-all  text-xs peer outline-none bg-[#FAFAFA] border border-inactive_line focus:border-[#A8A8A8] rounded p-[10px] pl-[8px]"
-        }
-        required={true}
-        onChange={(e) => onChange(e.target.value)}
+        className={classNames({
+          "px-2 outline-none text-xs border border-inactive_line rounded bg-transparent w-full h-[38px]": true,
+          "pt-[10px]": field.value,
+          "mb-1": id == 1
+        })} {...field} {...props}
         type={typeCurrent}
       />
       <small
-        className={
-          id == 1
-            ? " transition-all text-inactive_text peer-valid:top-[0.16rem] peer-valid:left-[-0.6rem] peer-valid:scale-[82%] text-xs text-left absolute left-[0.6rem] top-[0.68rem]"
-            : " transition-all text-inactive_text peer-valid:top-[0.16rem] peer-valid:left-[0.20rem] peer-valid:scale-[82%] text-xs text-left absolute left-[0.6rem] top-[0.68rem]"
-        }
+        className={classNames({
+          "absolute left-[9px] cursor-text pointer-events-none text-gray-400 -translate-y-1/2 transition-all": true,
+          "text-xs top-1/2": !field.value,
+          "text-[10px] top-2.5": field.value
+        })}
       >
         {label}
       </small>
-      {showBtn ? (
+      {type === 'password' && field.value ? (
         <button
           type="button"
           onClick={() => {

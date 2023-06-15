@@ -1,8 +1,11 @@
 import React from 'react'
+import SideBar from '../components/SideBar'
 
 function Home() {
   return (
-    <div className=' bg-pink-500'>Home </div>
+    <div className=''>
+      <SideBar />  
+    </div>
   )
 }
 

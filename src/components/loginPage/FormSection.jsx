@@ -1,63 +1,71 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { setUser } from "../../store/auth";
+import { login } from "../../firebase";
+import { Formik } from "formik";
+import { useSelector } from "react-redux";
+import { loginSchema } from "../../validation";
 
 function FormSection() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const user = useSelector((state) => state.auth.user);
 
-  let btnActive = username && password;
 
-  const logInHandle = (e) => {
-    e.preventDefault()
-    dispatch(setUser({username}));
-
-    navigate(location.state?.return_url || "/", { replace: true });
+  const handleSubmit = async (values, actions, e) => {
+    await login(values.username, values.password)
+    navigate(location.state?.return_url || "/" , {replace:true})
   };
 
   return (
     <div className=" w-[270px] pt-8">
-      <form action="">
-        <Input
-          type="text"
-          id={1}
-          value={username}
-          onChange={setUsername}
-          label="Phone number, username or email"
-        />
-        <Input
-          type="password"
-          id={2}
-          value={password}
-          onChange={setPassword}
-          label={"Password"}
-        />
-        <div className=" p-[1.1rem] pl-1 flex items-center gap-[0.4rem]">
-          <input
-            className=" w-4 h-4 outline-none accent-white ring-0"
-            type="checkbox"
-            name=""
-            id="save"
-          />
-          <label className=" text-[12px]" htmlFor="save">
-            Save login info
-          </label>
-        </div>
-        <button
-          onClick={logInHandle}
-          className=" h-8 flex items-center justify-center disabled:bg-[#4CB5F9] text-white w-full font-semibold text-sm rounded-lg bg-[#0095F6] hover:bg-[#1877F2]"
-          type="submit"
-          disabled={!btnActive}
-        >
-          <span className="-mt-1">Log in</span>
-        </button>
-      </form>
+      <Formik
+        initialValues={{ username: "", password: "" }}
+        validationSchema={loginSchema}
+        onSubmit={(e) => { e.preventDefault(); console.log(13);}}
+      >
+        {({
+          values,
+          isSubmitting,
+          isValid,
+          dirty,
+          actions
+          /* and other goodies */
+        }) => (
+          <form>
+            <div>{JSON.stringify(values, null, 2)}</div>
+            <Input
+              type="text"
+              name="username"
+              id={1}
+              label="Phone number, username or email"
+            />
+            <Input type="password" name="password" id={2} label={"Password"} />
+
+            <div className=" p-[1.1rem] pl-1 flex items-center gap-[0.4rem]">
+              <input
+                className=" w-4 h-4 outline-none accent-white ring-0"
+                type="checkbox"
+                name=""
+                id="save"
+              />
+              <label className=" text-[12px]" htmlFor="save">
+                Save login info
+              </label>
+            </div>
+            <button
+              className=" h-8 flex items-center justify-center disabled:bg-[#4CB5F9] text-white w-full font-semibold text-sm rounded-lg bg-[#0095F6] hover:bg-[#1877F2]"
+              type="submit"
+              onClick={e =>{ e.preventDefault(); handleSubmit(values,actions);}}
+              disabled={isSubmitting}
+            >
+              <span className="-mt-1">Log in</span>
+            </button>
+          </form>
+        )}
+      </Formik>
+
       <div className="flex items-center mt-[0.85rem]">
         <div className="w-full h-[0.7px] bg-inactive_line"></div>
         <div className=" font-semibold text-[0.82rem] px-4 text-inactive_text">
