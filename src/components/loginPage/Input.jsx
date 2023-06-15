@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Input({ type, value, onChange, label, id }) {
-
   const [showing, setShowing] = useState(false);
-  const [showBtn, setShowBtn] = useState(false)
+  const [showBtn, setShowBtn] = useState(false);
   const [typeCurrent, setTypeCurrent] = useState(type);
 
- useEffect(() => {
+  useEffect(() => {
     if (id == 2 && value) {
-        setShowBtn(true)
-    }else{
-        setShowBtn(false)
+      setShowBtn(true);
+    } else {
+      setShowBtn(false);
     }
- }, [value])
- 
+  }, [value]);
+
+  function moveCursorToEnd(e) {
+    setTimeout(function(){
+        const input = document.querySelector(`#input${id}`);
+        input.selectionStart = input.selectionEnd = input.value.length;
+        input.focus();
+    }, 0)
+}
 
   return (
     <label className="block relative" htmlFor={`input${id}`}>
@@ -31,16 +37,25 @@ function Input({ type, value, onChange, label, id }) {
       <small
         className={
           id == 1
-            ? "arda transition-all text-inactive_text peer-valid:top-[0.16rem] peer-valid:left-[-0.8rem] peer-valid:scale-[82%] text-xs text-left absolute left-[0.6rem] top-[0.68rem]"
-            : "ege transition-all text-inactive_text peer-valid:top-[0.16rem] peer-valid:left-[0.20rem] peer-valid:scale-[82%] text-xs text-left absolute left-[0.6rem] top-[0.68rem]"
+            ? " transition-all text-inactive_text peer-valid:top-[0.16rem] peer-valid:left-[-0.6rem] peer-valid:scale-[82%] text-xs text-left absolute left-[0.6rem] top-[0.68rem]"
+            : " transition-all text-inactive_text peer-valid:top-[0.16rem] peer-valid:left-[0.20rem] peer-valid:scale-[82%] text-xs text-left absolute left-[0.6rem] top-[0.68rem]"
         }
       >
         {label}
       </small>
-      {showBtn ? <button type="button" onClick={() => {
-        setShowing(!showing)
-        setTypeCurrent(showing ? "password" : "text")
-      }} className="absolute top-[0.5rem] right-[0.5rem] text-sm font-semibold hover:text-[#909090]">{!showing ? "Show" : "Hide"}</button> : null}
+      {showBtn ? (
+        <button
+          type="button"
+          onClick={() => {
+            moveCursorToEnd();
+            setShowing(!showing);
+            setTypeCurrent(showing ? "password" : "text");
+          }}
+          className="absolute top-[0.5rem] right-[0.5rem] text-sm font-semibold hover:text-[#909090]"
+        >
+          {!showing ? "Show" : "Hide"}
+        </button>
+      ) : null}
     </label>
   );
 }

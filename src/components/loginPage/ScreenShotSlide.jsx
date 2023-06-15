@@ -2,24 +2,6 @@
 import React, { useEffect, useRef } from "react";
 
 
-const data = [
-    {
-      id: 1,
-      src: "public/screenshots/screenshot1.png",
-    },
-    {
-      id: 2,
-      src: "public/screenshots/screenshot2.png",
-    },
-    {
-      id: 3,
-      src: "public/screenshots/screenshot3.png",
-    },
-    {
-      id: 4,
-      src: "public/screenshots/screenshot4.png",
-    },
-  ];
 
 function ScreenShotSlide() {
 
@@ -63,22 +45,22 @@ useEffect(() => {
     >
       <img
         className=" transition-opacity ease-in-out duration-[1700ms] opacity-0 bg-slate absolute right-[16px] bottom-[14px]"
-        src={data[0].src}
+        src="../../../public/screenshots/screenshot1.png"
         alt=""
       />
       <img
         className=" transition-opacity ease-in-out duration-[1700ms] opacity-0 bg-slate absolute right-[16px] bottom-[14px]"
-        src={data[1].src}
+        src="../../../public/screenshots/screenshot2.png"
         alt=""
       />
       <img
         className=" transition-opacity ease-in-out duration-[1700ms] opacity-0 bg-slate absolute right-[16px] bottom-[14px]"
-        src={data[2].src}
+        src="../../../public/screenshots/screenshot3.png"
         alt=""
       />
       <img
         className=" transition-opacity ease-in-out duration-[1700ms] opacity-0 bg-slate absolute right-[16px] bottom-[14px]"
-        src={data[3].src}
+        src="../../../public/screenshots/screenshot4.png"
         alt=""
       />
     </div>
