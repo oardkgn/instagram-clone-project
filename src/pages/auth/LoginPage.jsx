@@ -1,9 +1,12 @@
+import Footer from "../../components/Footer";
 import FormSection from "../../components/loginPage/FormSection";
 import ScreenShotSlide from "../../components/loginPage/ScreenShotSlide";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
+
+
   return (
-  
     <div className=" ">
       <div className="w-full h-screen flex flex-col justify-center items-center">
         <div className=" flex justify-center md:gap-8 w-full h-[628px]">
@@ -19,9 +22,9 @@ function LoginPage() {
             </div>
             <div className=" flex p-5 gap-1 mt-[0.53rem] text-sm md:border justify-center items-center border-inactive_line">
               <p>Don't have an account?</p>
-              <a className=" text-[#5295F6] font-semibold" href="">
+              <Link to={"/auth/register"} className=" text-[#5295F6] font-semibold" href="">
                 Sign up
-              </a>
+              </Link>
             </div>
             <div className=" mt-4">
               <p className=" text-sm text-center">Get the app.</p>
@@ -45,25 +48,7 @@ function LoginPage() {
       </div>
       {/* footer section */}
 
-      <div className=" flex justify-center pb-16 px-8">
-        <ul className=" flex max-w-[860px] justify-center gap-x-4 gap-y-3 md:gap-y-5 text-xs text-inactive_text whitespace-nowrap flex-wrap">
-          <li><a className="hover:underline" href="">Meta</a></li>
-          <li><a className="hover:underline" href="">About</a></li>
-          <li><a className="hover:underline" href="">Blog</a></li>
-          <li><a className="hover:underline" href="">Jobs</a></li>
-          <li><a className="hover:underline" href="">Help</a></li>
-          <li><a className="hover:underline" href="">API</a></li>
-          <li><a className="hover:underline" href="">Privacy</a></li>
-          <li><a className="hover:underline" href="">Terms</a></li>
-          <li><a className="hover:underline" href="">Top Accounts</a></li>
-          <li><a className="hover:underline" href="">Locations</a></li>
-          <li><a className="hover:underline" href="">Instagram Lite</a></li>
-          <li><a className="hover:underline" href="">Contact Uploading & Non-Users</a></li>
-          <li><a className="hover:underline" href="">Meta Verified</a></li>
-          <li><a className="hover:underline" href="">English</a></li>
-          <li>© 2023 Instagram from Meta</li>
-        </ul>
-      </div>
+     <Footer />
     </div>
   );
 }

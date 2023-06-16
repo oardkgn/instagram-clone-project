@@ -24,17 +24,16 @@ function Input({ type, label, id, ...props }) {
       <input
         id={`input${id}`}
         className={classNames({
-          "px-2 outline-none text-xs border border-inactive_line rounded bg-transparent w-full h-[38px]": true,
-          "pt-[10px]": field.value,
-          "mb-1": id == 1
+          "px-2 outline-none text-xs border mb-1 border-inactive_line rounded bg-transparent w-full h-[38px]": true,
+          "pt-[12px]": field.value,
         })} {...field} {...props}
         type={typeCurrent}
       />
       <small
         className={classNames({
-          "absolute left-[9px] cursor-text pointer-events-none text-gray-400 -translate-y-1/2 transition-all": true,
-          "text-xs top-1/2": !field.value,
-          "text-[10px] top-2.5": field.value
+          "absolute left-[10px] cursor-text pointer-events-none text-gray-400 transition-all": true,
+          "text-xs top-3": !field.value,
+          "text-[10px] top-[3px] left-[7px]": field.value
         })}
       >
         {label}

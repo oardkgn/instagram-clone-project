@@ -2,8 +2,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "./pages/auth";
 import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
 import Home from "./pages/Home";
-import RegisterPage from "./components/RegisterPage";
+
 
 const routes = createBrowserRouter([
     {
@@ -18,7 +19,11 @@ const routes = createBrowserRouter([
             {
                 path:'login',
                 element: <LoginPage />
-            }
+            },
+            {
+                path:'register',
+                element: <RegisterPage />
+            },
         ]
     }
   ]);

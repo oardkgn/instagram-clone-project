@@ -1,8 +1,6 @@
 import Yup from "./validate";
 
-export const loginSchema = Yup.object().shape({
+export const LoginSchema = Yup.object().shape({
   username: Yup.string().required(),
-  passWord: Yup.string().required(),
+  password: Yup.string().required(),
 });
-
-
