@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { login } from "../../firebase";
 import { Formik } from "formik";
@@ -14,12 +14,12 @@ function FormSection() {
   const location = useLocation();
   const user = useSelector((state) => state.auth.user);
 
+  if (user) {
+    return <Navigate to={location.state?.return_url || "/"} replace={true} />
+  }
 
   const handleSubmit = async (values, actions) => {
-    let response = await login(values.username, values.password)
-    if (response) {
-      navigate(location.state?.return_url || "/" , {replace:true})
-    }
+     await login(values.username, values.password);
   };
 
   return (
@@ -33,7 +33,7 @@ function FormSection() {
           isSubmitting,
           isValid,
           dirty,
-          actions
+          actions,
           /* and other goodies */
         }) => (
           <form>
@@ -58,8 +58,11 @@ function FormSection() {
             </div>
             <Button
               type="submit"
-              onClick={e =>{ e.preventDefault(); handleSubmit(values,actions);}}
-              disabled={ !dirty || !isValid || isSubmitting}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit(values, actions);
+              }}
+              disabled={!dirty || !isValid || isSubmitting}
             >
               <span className="-mt-1">Log in</span>
             </Button>
@@ -68,7 +71,7 @@ function FormSection() {
       </Formik>
 
       <Divider />
-      
+
       <div className="flex flex-col items-center pb-[24px] gap-[1rem] mt-7">
         <a href="#" className=" flex w-fit items-center ">
           <div className=" w-4 h-4 bg-[position:-414px_-259px] bg-[url('https://static.cdninstagram.com/rsrc.php/v3/y5/r/TJztmXpWTmS.png')]"></div>

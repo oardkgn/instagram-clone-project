@@ -18,6 +18,7 @@ const textLogo = ({ size }) => {
     </svg>
   );
 };
+
 const homeIcon = ({ size }) => {
   return (
     <svg
@@ -33,6 +34,7 @@ const homeIcon = ({ size }) => {
     </svg>
   );
 };
+
 const searchIcon = ({ size }) => {
   return (
     <svg
@@ -319,10 +321,10 @@ const settingLogo = ({ size }) => {
       aria-label="Settings"
       color="rgb(0, 0, 0)"
       fill="rgb(0, 0, 0)"
-      height="18"
+      height={size}
       role="img"
       viewBox="0 0 24 24"
-      width="18"
+      width={size}
     >
       <title>Settings</title>
       <circle

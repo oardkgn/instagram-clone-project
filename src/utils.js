@@ -1,5 +1,5 @@
  import { setUser } from "./store/auth";
- import  configureStore from "./store/index";
+ import  store from "./store/index";
  export const userHandler = (data) => {
-    configureStore.dispatch(setUser(data.uid))
+   store.dispatch(setUser(data))
  }

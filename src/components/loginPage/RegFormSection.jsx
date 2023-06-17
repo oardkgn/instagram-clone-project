@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Formik } from "formik";
 import { useSelector } from "react-redux";
-import { LoginSchema } from "../../validation/index";
 import Button from "../Button";
 import { createUser } from "../../firebase";
+import { RegisterSchema } from "../../validation/register-schema";
 
 function RegFormSection() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function RegFormSection() {
   const user = useSelector((state) => state.auth.user);
 
   const handleSubmit = async (values, actions, e) => {
-    let response = await createUser(values.email, values.password);
+    let response = await createUser(values);
     if (response) {
       navigate(location.state?.return_url || "/", { replace: true });
     }
@@ -24,7 +24,7 @@ function RegFormSection() {
     <div className=" w-[270px] pt-4">
       <Formik
         initialValues={{ email: "", fullname: "", username: "", password: "" }}
-        validationSchema={LoginSchema}
+        validationSchema={RegisterSchema}
       >
         {({
           values,
@@ -47,8 +47,24 @@ function RegFormSection() {
 
             <p className=" text-center my-3 px-1 text-xs text-inactive_text">
               People who use our service may have uploaded your contact
-              information to Instagram. <a className=" text-sky-950" href="">Learn More</a> <br /><br /> By signing up, you agree to
-              our <a className=" text-sky-950" href="">Terms</a> , <a className=" text-sky-950" href="">Privacy Policy</a> and <a className=" text-sky-950" href="">Cookies Policy</a> .
+              information to Instagram.{" "}
+              <a className=" text-sky-950" href="">
+                Learn More
+              </a>{" "}
+              <br />
+              <br /> By signing up, you agree to our{" "}
+              <a className=" text-sky-950" href="">
+                Terms
+              </a>{" "}
+              ,{" "}
+              <a className=" text-sky-950" href="">
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a className=" text-sky-950" href="">
+                Cookies Policy
+              </a>{" "}
+              .
             </p>
 
             <Button
