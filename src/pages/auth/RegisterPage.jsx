@@ -8,8 +8,8 @@ import Footer from "../../components/Footer";
 
 function RegisterPage() {
   return (
-    <div className="pt-12">
-      <div className="w-full h-screen  flex items-center justify-center">
+    <div className="pt-12 pb-64 relative">
+      <div className="w-full  h-screen   flex items-center justify-center">
         <div className=" w-[350px] flex flex-col">
           <div className="flex md:border px-10 border-inactive_line justify-center flex-col pt-12 pb-6">
             <div className='  self-center w-44 h-14 bg-[url("https://static.cdninstagram.com/rsrc.php/v3/yx/r/WtxJZZ3-9ZP.png")] bg-left-top bg-[length:176px_186px]'></div>

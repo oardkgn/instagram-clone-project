@@ -7,7 +7,7 @@ function LoginPage() {
 
 
   return (
-    <div className=" ">
+    <div className=" pb-36 relative ">
       <div className="w-full h-screen flex flex-col justify-center items-center">
         <div className=" flex justify-center md:gap-8 w-full h-[628px]">
           {/* login image slide section  */}

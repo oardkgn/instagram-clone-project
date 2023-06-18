@@ -4,9 +4,13 @@ import SideBar from "../components/SideBar";
 
 function MainLayout() {
   return (
-    <div className=" flex">
+    <div className="flex">
       <SideBar />
-      <div className=" w-full"><Outlet /></div>
+      <div className=" w-full">
+        <Outlet />
+        
+        </div>
+      
     </div>
   );
 }

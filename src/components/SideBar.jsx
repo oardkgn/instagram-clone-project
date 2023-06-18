@@ -5,10 +5,12 @@ import { useState } from "react";
 import classNames from "classnames";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function SideBar() {
   const [showMore, setShowMore] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
+  const user = useSelector((state) => state.auth.user)
 
   const handleSearch = () => {
     setSearchBar(!searchBar);
@@ -39,8 +41,8 @@ function SideBar() {
           )}
           <ul className="pt-6 px-3 flex flex-col flex-shrink-0 gap-2">
             <li>
-              <a
-                href=""
+              <Link
+                to={"/"}
                 className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex gap-4"
               >
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
@@ -49,7 +51,7 @@ function SideBar() {
                 {!searchBar && (
                   <span className="hidden xl:block font-bold">Home</span>
                 )}
-              </a>
+              </Link>
             </li>
             <li>
               <button
@@ -126,7 +128,7 @@ function SideBar() {
             <li>
               <div>
                 <Link
-                  to={"/profile"}
+                  to={`/${user.username}`}
                   className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex gap-4"
                 >
                   <img
