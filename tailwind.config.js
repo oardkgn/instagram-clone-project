@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         'inactive_text': '#737373',
-        'inactive_line': '#DBDBDB'
+        'inactive_line': '#DBDBDB',
+        'active_profile_nav': '#262626',
       },
     },
   },

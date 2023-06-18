@@ -6,6 +6,9 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import Home from "./pages/Home";
 import Profile from "./pages/profile/Profile";
 import MainLayout from "./pages/MainLayout";
+import Posts from "./pages/profile/components/Posts"
+import Saved from "./pages/profile/components/Saved"
+import Tagged from "./pages/profile//components/Tagged"
 
 const routes = createBrowserRouter([
   {
@@ -19,7 +22,21 @@ const routes = createBrowserRouter([
         },
         { 
             path: ":username", 
-            element: <Profile /> 
+            element: <Profile />,
+            children: [
+              {
+                index : true,
+                element: <Posts />
+              },
+              {
+                path: "saved",
+                element: <Saved />
+              },
+              {
+                path: "tagged",
+                element: <Tagged />
+              },
+            ]
         },
     ],
   },

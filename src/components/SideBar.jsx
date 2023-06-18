@@ -131,7 +131,7 @@ function SideBar() {
                 >
                   <img
                     className="w-6 h-6  -ml-[1px] rounded-full group-hover:scale-105 transition-all"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRViRQJ7b7BJff6G7GN5gxbJLlG9h8ErWVRCeYPMOM&s"
+                    src="../../../public/defaultProfileImg.jpg"
                     alt=""
                   />
                   {!searchBar && (

@@ -15,7 +15,7 @@ function SearchBar({isSearchBarOpen}) {
 
   return (
     <div className={classNames({
-        " absolute left-full overflow-hidden h-screen transition-all rounded-r-2xl border-r" : true,
+        " absolute left-full overflow-hidden h-screen transition-all bg-white rounded-r-2xl border-r" : true,
         " !w-0 " : !isSearchBarOpen,
         " w-[397px] " : isSearchBarOpen
     })}>

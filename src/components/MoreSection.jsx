@@ -35,7 +35,7 @@ function MoreSection({showMore}) {
               className="flex items-center p-2 py-[0.94rem] pl-4 gap-3 transition-all duration-200 hover:bg-gray-100 rounded-lg"
             >
               {" "}
-              <GetIcon name="saved" /> <span>Saved</span>
+              <GetIcon name="saved" size={18} /> <span>Saved</span>
             </a>
           </li>
           <li>

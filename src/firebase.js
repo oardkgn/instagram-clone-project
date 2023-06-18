@@ -45,6 +45,19 @@ onAuthStateChanged(auth, async(user) => {
   }
 });
 
+
+export const getUser = async username =>{
+  const findUser = await getDoc(doc(db, "usernames", username))
+  if (findUser.exists()) {
+    return (await getDoc(doc(db, "users", findUser.data().uid))).data()
+    return findRealUser.data();
+  }else{
+    toast.error("User not find")
+    throw new Error("User not find")
+  }
+}
+
+
 export const createUser = async ({ email, password, username, fullname }) => {
   try {
 

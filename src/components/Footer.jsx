@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="pt-28 flex justify-center pb-16 px-8">
+    <div className=" absolute bottom-0 flex justify-center pb-12 px-8">
       <ul className=" flex max-w-[860px] justify-center gap-x-4 gap-y-3 md:gap-y-5 text-xs text-inactive_text whitespace-nowrap flex-wrap">
         <li>
           <a className="hover:underline" href="">
