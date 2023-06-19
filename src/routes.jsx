@@ -9,6 +9,9 @@ import MainLayout from "./pages/MainLayout";
 import Posts from "./pages/profile/components/Posts"
 import Saved from "./pages/profile/components/Saved"
 import Tagged from "./pages/profile//components/Tagged"
+import ChatsBar from "./pages/inbox/ChatsBar"
+import ChatDiv from "./pages/inbox/ChatDiv"
+import InboxLayout from "./pages/inbox/inboxLayout";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +41,10 @@ const routes = createBrowserRouter([
               },
             ]
         },
+        {
+          path: "direct/inbox",
+          element: <InboxLayout />,
+        }
     ],
   },
   {

@@ -5,10 +5,14 @@ import { AiFillFacebook } from "react-icons/ai";
 import Divider from "../../components/Divider";
 import RegFormSection from "../../components/loginPage/RegFormSection";
 import Footer from "../../components/Footer";
+import { Helmet } from "react-helmet";
 
 function RegisterPage() {
   return (
     <div className="pt-12 pb-64 relative">
+      <Helmet>
+        <title>Sign up • Instagram</title>
+      </Helmet>
       <div className="w-full  h-screen   flex items-center justify-center">
         <div className=" w-[350px] flex flex-col">
           <div className="flex md:border px-10 border-inactive_line justify-center flex-col pt-12 pb-6">

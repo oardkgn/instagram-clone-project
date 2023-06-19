@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Footer from "../../components/Footer";
 import FormSection from "../../components/loginPage/FormSection";
 import ScreenShotSlide from "../../components/loginPage/ScreenShotSlide";
@@ -8,6 +9,11 @@ function LoginPage() {
 
   return (
     <div className=" pb-36 relative ">
+      <Helmet>
+        <title>
+          Instagram
+        </title>
+      </Helmet>
       <div className="w-full h-screen flex flex-col justify-center items-center">
         <div className=" flex justify-center md:gap-8 w-full h-[628px]">
           {/* login image slide section  */}

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ProfileHeader from "./ProfileHeader";
 import Footer from "../../components/Footer";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getUser } from "../../firebase";
 import { Outlet } from "react-router-dom";
 import PageNotFound from "../../components/PageNotFound";
+import { Helmet } from "react-helmet";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -30,8 +31,11 @@ function Profile() {
     return <div>Loading...</div>;
   }
 
-  return (
+  return user && (
     <div className=" relative h-full">
+      <Helmet>
+        <title>{`.(@${user.username} | Instagram`}</title>
+      </Helmet>
       <div className=" max-w-[930px] min-h-[600px] w-full h-full mx-auto flex-col">
         <ProfileHeader user={user} />
 

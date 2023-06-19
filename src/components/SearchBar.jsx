@@ -15,11 +15,11 @@ function SearchBar({isSearchBarOpen}) {
 
   return (
     <div className={classNames({
-        " absolute left-full overflow-hidden h-screen transition-all bg-white rounded-r-2xl border-r" : true,
+        " absolute left-full overflow-hidden z-50 h-screen transition-all bg-white rounded-r-2xl border-r" : true,
         " !w-0 " : !isSearchBarOpen,
         " w-[397px] " : isSearchBarOpen
     })}>
-      <h1 className="pt-6 pl-7 pb-10 text-2xl font-semibold">Search</h1>
+      <h1 className="pt-6 pl-7 pb-10 text-2xl font-semibold bg-white">Search</h1>
 
       {/* search section */}
 
@@ -49,7 +49,7 @@ function SearchBar({isSearchBarOpen}) {
 
       {/* results section */}
 
-      <div className=" w-full flex flex-col pt-4 h-[calc(100vh-160px)] overflow-y-auto">
+      <div className=" w-full flex flex-col pt-4 h-[calc(100vh-160px)] bg-white overflow-y-auto">
         <div className=" flex justify-between  px-7 items-center">
           <h3 className="font-semibold pb-3">Recent</h3>
           <button className=" text-sky-500 font-semibold text-sm hover:text-sky-900">

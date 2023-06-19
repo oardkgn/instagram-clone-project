@@ -1,16 +1,25 @@
-import React from "react";
+import {useEffect} from "react";
 import { GetIcon } from "../assets/icons";
 import MoreSection from "./MoreSection";
 import { useState } from "react";
 import classNames from "classnames";
 import SearchBar from "./SearchBar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function SideBar() {
   const [showMore, setShowMore] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
+  const [msgBar, setMsgBar] = useState(false);
   const user = useSelector((state) => state.auth.user)
+
+  useEffect(() => {
+    if (window.location.href == "http://localhost:5173/direct/inbox") {
+    setMsgBar(true)
+  }
+  }, [])
+  
+  
 
   const handleSearch = () => {
     setSearchBar(!searchBar);
@@ -21,11 +30,12 @@ function SideBar() {
       <div
         className={classNames({
           "flex relative flex-col pb-6 justify-between w-[72px] xl:w-[244px] h-screen transition-all border-r": true,
-          "!w-[71.2px]": searchBar,
+          "!w-[71.1px]": searchBar,
+          "!w-[71.2px]": msgBar,
         })}
       >
         <div>
-          {!searchBar ? (
+          {(!searchBar && !msgBar) ? (
             <>
               <div className="pt-10 hidden xl:block pl-6 pb-3">
                 <GetIcon name="instagram" size={103} />
@@ -41,17 +51,18 @@ function SideBar() {
           )}
           <ul className="pt-6 px-3 flex flex-col flex-shrink-0 gap-2">
             <li>
-              <Link
+              <NavLink
                 to={"/"}
+                onClick={() => setMsgBar(false)}
                 className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex gap-4"
               >
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="home" />
                 </div>
-                {!searchBar && (
+                {(!searchBar && !msgBar) ? (
                   <span className="hidden xl:block font-bold">Home</span>
-                )}
-              </Link>
+                ) : null}
+              </NavLink>
             </li>
             <li>
               <button
@@ -63,7 +74,7 @@ function SideBar() {
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="search" />
                 </div>
-                {!searchBar && <span className=" hidden xl:block">Search</span>}
+                {(!searchBar && !msgBar) ? <span className=" hidden xl:block">Search</span> : null}
               </button>
             </li>
             <li>
@@ -74,7 +85,7 @@ function SideBar() {
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="explore" />
                 </div>
-                {!searchBar && <span className="hidden xl:block">Explore</span>}
+                {(!searchBar && !msgBar) ? <span className="hidden xl:block">Explore</span> : null}
               </a>
             </li>
             <li>
@@ -85,33 +96,36 @@ function SideBar() {
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="reels" />
                 </div>
-                {!searchBar && <span className=" hidden xl:block">Reels</span>}
-              </a>
+                {(!searchBar && !msgBar) ? <span className=" hidden xl:block">Reels</span> : null}
+              </a> 
             </li>
             <li>
-              <a
-                href=""
+              <NavLink
+                to={`/direct/inbox`}
+                onClick={() => {
+                  setMsgBar(true)
+                }}
                 className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex gap-4"
               >
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="msg" />
                 </div>
-                {!searchBar && (
+                {(!searchBar && !msgBar) ? (
                   <span className=" hidden xl:block">Messages</span>
-                )}
-              </a>
+                ) : null}
+              </NavLink>
             </li>
             <li>
               <a
-                href=""
+                
                 className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex gap-4"
               >
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="notify" />
                 </div>
-                {!searchBar && (
+                {(!searchBar && !msgBar) ? (
                   <span className=" hidden xl:block">Notifications</span>
-                )}
+                ) : null}
               </a>
             </li>
             <li>
@@ -122,13 +136,14 @@ function SideBar() {
                 <div className=" -ml-[1px] group-hover:scale-105 transition-all">
                   <GetIcon name="create" />
                 </div>
-                {!searchBar && <span className=" hidden xl:block">Create</span>}
+                {(!searchBar && !msgBar) ? <span className=" hidden xl:block">Create</span> : null}
               </a>
             </li>
             <li>
               <div>
-                <Link
+                <NavLink
                   to={`/${user.username}`}
+                  reloadDocument={true}
                   className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex gap-4"
                 >
                   <img
@@ -136,10 +151,10 @@ function SideBar() {
                     src="../../../public/defaultProfileImg.jpg"
                     alt=""
                   />
-                  {!searchBar && (
+                  {(!searchBar && !msgBar) ? (
                     <span className=" hidden xl:block">Profile</span>
-                  )}
-                </Link>
+                  ) : null}
+                </NavLink>
               </div>
             </li>
           </ul>
@@ -154,7 +169,7 @@ function SideBar() {
               <div className=" group-hover:scale-105 transition-all">
                 <GetIcon name="menu" />
               </div>
-              {!searchBar && <span className=" hidden xl:block">More</span>}
+              {(!searchBar && !msgBar) ? <span className=" hidden xl:block">More</span> : null}
             </button>
           </li>
         </ul>
