@@ -6,12 +6,12 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import Home from "./pages/Home";
 import Profile from "./pages/profile/Profile";
 import MainLayout from "./pages/MainLayout";
-import Posts from "./pages/profile/components/Posts"
-import Saved from "./pages/profile/components/Saved"
-import Tagged from "./pages/profile//components/Tagged"
-import ChatsBar from "./pages/inbox/ChatsBar"
-import ChatDiv from "./pages/inbox/ChatDiv"
+import Posts from "./pages/profile/components/Posts";
+import Saved from "./pages/profile/components/Saved";
+import Tagged from "./pages/profile//components/Tagged";
 import InboxLayout from "./pages/inbox/inboxLayout";
+import InitialChatDiv from "./pages/inbox/components/InitialChatDiv";
+import AChatScreen from "./pages/inbox/components/aChatScreen";
 
 const routes = createBrowserRouter([
   {
@@ -19,32 +19,42 @@ const routes = createBrowserRouter([
     element: <MainLayout />,
     auth: true,
     children: [
-        { 
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: ":username",
+        element: <Profile />,
+        children: [
+          {
             index: true,
-            element: <Home /> 
-        },
-        { 
-            path: ":username", 
-            element: <Profile />,
-            children: [
-              {
-                index : true,
-                element: <Posts />
-              },
-              {
-                path: "saved",
-                element: <Saved />
-              },
-              {
-                path: "tagged",
-                element: <Tagged />
-              },
-            ]
-        },
-        {
-          path: "direct/inbox",
-          element: <InboxLayout />,
-        }
+            element: <Posts />,
+          },
+          {
+            path: "saved",
+            element: <Saved />,
+          },
+          {
+            path: "tagged",
+            element: <Tagged />,
+          },
+        ],
+      },
+      {
+        path: "inbox",
+        element: <InboxLayout />,
+        children: [
+          {
+            index: true,
+            element: <InitialChatDiv />,
+          },
+          {
+            path: ":conversationId",
+            element: <AChatScreen />,
+          },
+        ],
+      },
     ],
   },
   {
