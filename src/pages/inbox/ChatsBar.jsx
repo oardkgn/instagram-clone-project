@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
+
 import { GetIcon } from "../../assets/icons";
 import ChatBox from "./components/ChatBox";
-import { usersData } from "../../data";
 
-function ChatsBar() {
-  const [chats, setChats] = useState(null);
-  useEffect(() => {
-    setChats(usersData.slice(10, 20));
-  }, []);
+
+function ChatsBar({chats}) {
   
+
   return (
     <div className="w-[397px] min-w-[397px] border-r border-inactive_line">
       <div className=" flex justify-between pl-6  pr-7 mt-9 items-center">
@@ -29,11 +26,11 @@ function ChatsBar() {
         </button>
       </div>
       <div className="chats pt-2 h-full max-h-[calc(100vh-116px)] overflow-y-scroll">
-        {chats ?
-          chats.map((chat) => {
-            
-           return <ChatBox chat={chat} key={chat.id} />;
-          }) : "Loading..."}
+        {chats
+          ? chats.map((chat) => {
+              return <ChatBox chat={chat} key={chat.id} />;
+            })
+          : "Loading..."}
       </div>
     </div>
   );

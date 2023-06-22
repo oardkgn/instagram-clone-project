@@ -3,7 +3,8 @@ import { GetIcon } from "../../../assets/icons";
 
 function InitialChatDiv() {
   return (
-    <div className="initialChatDiv flex flex-col items-center">
+   <div className="w-full flex justify-center items-center h-screen">
+     <div className="initialChatDiv flex flex-col items-center">
       <GetIcon name="yourMsg" size={96} />
       <h3 className=" text-xl pt-3 pb-1">Your messages</h3>
       <p className=" text-sm  text-inactive_text pb-4">
@@ -15,6 +16,7 @@ function InitialChatDiv() {
         </span>
       </button>
     </div>
+   </div>
   );
 }
 
