@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ChatsBar from "./chatsBar.jsx";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function InboxLayout() {
 
@@ -54,6 +55,9 @@ function InboxLayout() {
 
   return (
     <div className=" flex h-full w-full">
+      <Helmet>
+        <title>Inbox • Direct</title>
+      </Helmet>
       <ChatsBar chats={chats} />
       <div className=" w-full">
         <Outlet  context={[chats]} />

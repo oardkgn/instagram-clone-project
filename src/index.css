@@ -3,7 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-  html, body, #root{
-    @apply h-full
+  html,
+  body,
+  #root {
+    @apply h-full;
   }
+}
+
+.swiper-button-prev {
+  left: 14px;
+  top: 34px;
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  background-image: url("https://static.cdninstagram.com/rsrc.php/v3/y8/r/ZWR9C7_JdnP.png");
+  background-repeat: no-repeat;
+  background-position: -294px -226px;
+  height: 40px;
+  width: 40px;
+}
+.swiper-button-next {
+  right: 14px;
+  top: 34px;
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  background-image: url("https://static.cdninstagram.com/rsrc.php/v3/y8/r/ZWR9C7_JdnP.png");
+  background-repeat: no-repeat;
+  background-position: -294px -273px;
+  height: 40px;
+  width: 40px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
 }

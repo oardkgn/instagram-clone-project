@@ -5,7 +5,7 @@ function ChatBox({ chat }) {
   const currentChatId = useParams().conversationId;
   return (
     <NavLink
-      to={`/inbox/${chat.id}`}
+      to={`/direct/inbox/${chat.id}`}
       className={classNames({
         " flex gap-2 py-2 relative pl-6  cursor-pointer items-center": true,
         " hover:bg-[#FAFAFA]": currentChatId != chat.id,

@@ -9,7 +9,7 @@ import MainLayout from "./pages/MainLayout";
 import Posts from "./pages/profile/components/Posts";
 import Saved from "./pages/profile/components/Saved";
 import Tagged from "./pages/profile//components/Tagged";
-import InboxLayout from "./pages/inbox/inboxLayout";
+import InboxLayout from "./pages/inbox/InboxLayout";
 import InitialChatDiv from "./pages/inbox/components/InitialChatDiv";
 import AChatScreen from "./pages/inbox/components/aChatScreen";
 
@@ -42,7 +42,7 @@ const routes = createBrowserRouter([
         ],
       },
       {
-        path: "inbox",
+        path: "direct/inbox",
         element: <InboxLayout />,
         children: [
           {

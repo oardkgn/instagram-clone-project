@@ -4,15 +4,22 @@ import MoreSection from "./MoreSection";
 import { useState } from "react";
 import classNames from "classnames";
 import SearchBar from "./SearchBar";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function SideBar() {
   const [showMore, setShowMore] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
   const [msgBar, setMsgBar] = useState(false);
-  const [nav, setNav] = useState("home");
+  const [nav, setNav] = useState(localStorage.getItem("nav"));
+
   const user = useSelector((state) => state.auth.user);
+
+
+  useEffect(() => {
+    localStorage.setItem("nav",nav)
+  }, [nav])
+  
 
   useEffect(() => {
     if (window.location.href == "http://localhost:5173/direct/inbox") {
@@ -122,7 +129,7 @@ function SideBar() {
             </li>
             <li>
               <NavLink
-                to={`/inbox`}
+                to={`/direct/inbox`}
                 onClick={() => {
                   setMsgBar(true);
                   setSearchBar(false);
