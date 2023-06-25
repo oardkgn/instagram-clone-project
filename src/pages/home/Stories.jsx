@@ -104,12 +104,12 @@ function Stories() {
       slidesPerView={8}
       slidesPerGroup={3}
       modules={[Navigation]}
-      className="storiesSwiper relative z-10 flex flex-shrink-0 overflow-hidden gap-4"
+      className="storiesSwiper relative z-10 flex flex-shrink-0 gap-4"
     >
       {stories.map((item) => {
         return (
           <SwiperSlide
-            className=" cursor-pointer w-16 flex flex-col flex-shrink-0 items-center"
+            className=" cursor-pointer w-16 min-w-[78px] flex flex-col flex-shrink-0 items-center"
             key={item.id}
           >
             <div className="h-[66px]">

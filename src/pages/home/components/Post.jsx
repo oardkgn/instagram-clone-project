@@ -3,7 +3,7 @@ import { GetIcon } from "../../../assets/icons";
 
 function Post({ post }) {
   return (
-    <div className=" w-[470px] mx-auto border-b border-inactive_line pb-3 mb-3">
+    <div className=" max-w-[470px] mx-auto border-b border-inactive_line pb-3 mb-3">
       <div className=" flex items-center gap-2 h-14">
         <img className=" w-8 rounded-full" src={post.from.pic} alt="" />
         <h6 className=" text-sm font-semibold text-[#404040] mr-auto">

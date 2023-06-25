@@ -12,6 +12,11 @@ export default {
         'active_profile_nav': '#262626',
       },
     },
+    screens: {
+      'showSuggests': '1150px',
+      'mobileForm': '750px',
+      'mini': '335px',
+    },
   },
   plugins: [],
 }

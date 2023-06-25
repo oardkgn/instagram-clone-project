@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 
 function RegisterPage() {
   return (
-    <div className="pt-12 pb-64 relative">
+    <div className="pt-12 pb-20 overflow-x-hidden relative">
       <Helmet>
         <title>Sign up • Instagram</title>
       </Helmet>
@@ -58,7 +58,9 @@ function RegisterPage() {
           </div>
         </div>
       </div>
+      <div className=" pt-24">
       <Footer />
+      </div>
     </div>
   );
 }

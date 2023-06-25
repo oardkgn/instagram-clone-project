@@ -8,7 +8,7 @@ function LoginPage() {
 
 
   return (
-    <div className=" pb-36 relative ">
+    <div className=" pb-2 relative overflow-x-hidden ">
       <Helmet>
         <title>
           Instagram
