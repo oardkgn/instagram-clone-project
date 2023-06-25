@@ -11,7 +11,7 @@ function Home() {
         <title>Instagram</title>
       </Helmet>
       <div className=" w-full flex justify-center pt-11">
-        <div className=" w-[630px] mr-20">
+        <div className=" w-[630px] mr-16">
           <Stories />
           <Posts />
         </div>

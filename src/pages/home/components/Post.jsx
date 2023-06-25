@@ -45,7 +45,7 @@ function Post({ post }) {
             </div>
 
             <div className=" flex  mt-2">
-            <input type="text" placeholder=" Add a comment..." className=" placeholder:text-sm placeholder:-ml-4 outline-none flex-1" />
+            <input type="text" placeholder=" Add a comment..." className=" text-sm placeholder:text-sm placeholder:-ml-4 outline-none flex-1" />
             <button><GetIcon size={12} name="emoji"/></button>
             </div>
          
