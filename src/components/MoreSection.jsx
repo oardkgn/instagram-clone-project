@@ -8,8 +8,8 @@ function MoreSection({showMore}) {
   return (
     <div
     style={{boxShadow:"rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px" }} 
-    className="moreDiv absolute z-[9999] text-sm -top-[412px] rounded-2xl w-[266px]">
-      <div className="bg-white p-2 rounded-t-xl">
+    className="moreDiv bg-white absolute z-[1000] text-sm -top-[412px] rounded-2xl w-[266px]">
+      <div className="bg-white p-2  rounded-t-xl">
         <ul>
           <li>
             <a

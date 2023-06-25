@@ -806,10 +806,10 @@ const emojiIcon = ({ size }) => {
       aria-label="Choose an emoji"
       color="rgb(0, 0, 0)"
       fill="rgb(0, 0, 0)"
-      height="24"
+      height={size}
       role="img"
       viewBox="0 0 24 24"
-      width="24"
+      width={size}
     >
       <title>Choose an emoji</title>
       <path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path>
@@ -837,7 +837,7 @@ const photoIcon = ({ size }) => {
         fill="none"
         stroke="currentColor"
         strokeLinejoin="round"
-       strokeWidth="2"
+        strokeWidth="2"
       ></path>
       <path
         d="M18.44 2.004A3.56 3.56 0 0 1 22 5.564h0v12.873a3.56 3.56 0 0 1-3.56 3.56H5.568a3.56 3.56 0 0 1-3.56-3.56V5.563a3.56 3.56 0 0 1 3.56-3.56Z"
@@ -845,8 +845,25 @@ const photoIcon = ({ size }) => {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-       strokeWidth="2"
+        strokeWidth="2"
       ></path>
+    </svg>
+  );
+};
+const dotsIcon = ({ size }) => {
+  return (
+    <svg
+      aria-label="More options"
+      color="rgb(0, 0, 0)"
+      fill="rgb(0, 0, 0)"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <circle cx="12" cy="12" r="1.5"></circle>
+      <circle cx="6" cy="12" r="1.5"></circle>
+      <circle cx="18" cy="12" r="1.5"></circle>
     </svg>
   );
 };
@@ -868,13 +885,13 @@ const micIcon = ({ size }) => {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-       strokeWidth="2"
+        strokeWidth="2"
       ></path>
       <line
         fill="none"
         stroke="currentColor"
         strokeLinejoin="round"
-       strokeWidth="2"
+        strokeWidth="2"
         x1="12"
         x2="12"
         y1="19.068"
@@ -885,7 +902,7 @@ const micIcon = ({ size }) => {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-       strokeWidth="2"
+        strokeWidth="2"
         x1="8.706"
         x2="15.104"
         y1="22"
@@ -897,7 +914,29 @@ const micIcon = ({ size }) => {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-       strokeWidth="2"
+        strokeWidth="2"
+      ></path>
+    </svg>
+  );
+};
+const commentIcon = ({ size }) => {
+  return (
+    <svg
+      aria-label="Comment"
+      color="rgb(0, 0, 0)"
+      fill="rgb(0, 0, 0)"
+      height="24"
+      role="img"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <title>Comment</title>
+      <path
+        d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
       ></path>
     </svg>
   );
@@ -933,6 +972,8 @@ const GetIcon = ({ name, size = 24, width = 2 }) => {
     emoji: emojiIcon,
     photo: photoIcon,
     mic: micIcon,
+    dots: dotsIcon,
+    comment: commentIcon,
   };
 
   const Component = icons[name];
