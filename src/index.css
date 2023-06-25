@@ -11,8 +11,9 @@
 }
 
 .swiper-button-prev {
-  left: 14px;
-  top: 34px;
+  left: 4px;
+  top: 50%;
+ 
   background-color: transparent;
   width: 16px;
   height: 16px;
@@ -24,8 +25,9 @@
   width: 40px;
 }
 .swiper-button-next {
-  right: 14px;
-  top: 34px;
+  right: 5px;
+  top: 50%;
+ 
   background-color: transparent;
   width: 16px;
   height: 16px;
@@ -41,3 +43,12 @@
 .swiper-button-prev::after {
   content: "";
 }
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.938);
+}
+
+.swiper-pagination-bullet-active {
+  background: #f9f9f9;
+}
+

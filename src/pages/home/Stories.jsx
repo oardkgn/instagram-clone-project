@@ -99,12 +99,13 @@ const stories = [
 
 function Stories() {
   return (
-    <Swiper
+    <div className="storiesSwiper">
+      <Swiper
       navigation={true}
       slidesPerView={8}
       slidesPerGroup={3}
       modules={[Navigation]}
-      className="storiesSwiper relative z-10 flex flex-shrink-0 gap-4"
+      className=" relative z-10 flex flex-shrink-0 gap-4"
     >
       {stories.map((item) => {
         return (
@@ -137,6 +138,7 @@ function Stories() {
         );
       })}
     </Swiper>
+    </div>
   );
 }
 

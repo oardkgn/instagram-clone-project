@@ -22,7 +22,7 @@ function AChatScreen() {
   })
 
   return (
-    <div className=' h-screen max-h-screen pb-2 flex flex-col '>
+    <div className=' h-[calc(100vh-50px)]  mobileForm:h-screen  mobileForm:max-h-screen pb-2 flex flex-col '>
       <ChatHeader currentChat={currentChat[0]} />
       <ChatContext currentChat={currentChat[0]} messages={messages} />
       <ChatBottom setMessages={setMessages} />

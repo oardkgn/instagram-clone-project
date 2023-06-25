@@ -17,6 +17,7 @@ function Posts() {
         <button className=" text-sky-500 hover:text-[#212121] pt-4 text-sm font-semibold tracking-tight">
           Share your first photo
         </button>
+    
       </div>
       <div>{/* posts */}</div>
     </div>

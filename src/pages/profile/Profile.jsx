@@ -41,9 +41,10 @@ function Profile() {
 
         <Outlet />
       </div>
-      <div className=" absolute bottom-0 w-full pt-8 ml">
+      <div className=" hidden mobileForm:block absolute bottom-0 w-full pt-8 ml">
        <Footer />
       </div>
+      
     </div>
   );
 }

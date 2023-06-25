@@ -33,7 +33,7 @@ function ChatBottom({setMessages}) {
  };
 
   return (
-    <div className={`w-full flex items-center pt-3 flex-shrink-0 h-[${bottomBar}px]`}>
+    <div className={`w-full flex pr-5 mobileForm:pr-0 items-center pt-3 flex-shrink-0 h-[${bottomBar}px]`}>
       <form onSubmit={sendMessage} className=" mx-4 bg-white min-h-[44px] h-auto flex items-center border w-full border-inactive_line rounded-3xl">
         <button className=" ml-[14px] mr-[12px]">
           <GetIcon name="emoji" />

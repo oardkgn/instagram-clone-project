@@ -7,13 +7,13 @@ function ChatBox({ chat }) {
     <NavLink
       to={`/direct/inbox/${chat.id}`}
       className={classNames({
-        " flex gap-2 py-2 relative pl-6  cursor-pointer items-center": true,
+        " flex gap-2 py-2 relative justify-center tabletForm:justify-start tabletForm:pl-6 cursor-pointer  items-center": true,
         " hover:bg-[#FAFAFA]": currentChatId != chat.id,
         "bg-[#efefef]": currentChatId == chat.id,
       })}
     >
       <img className=" w-14 rounded-full" src={chat.src} alt="" />
-      <div className="  flex flex-col gap-[5px] -mt-2">
+      <div className="hidden tabletForm:flex flex-col gap-[5px] -mt-2">
         <h3 className=" text-sm font-semibold">{chat.name}</h3>
         <p
           className={classNames({

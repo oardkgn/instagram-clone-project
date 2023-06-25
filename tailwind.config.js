@@ -16,6 +16,8 @@ export default {
       'showSuggests': '1150px',
       'mobileForm': '750px',
       'mini': '335px',
+      'tabletForm': '900px',
+      'xl':'1250px'
     },
   },
   plugins: [],

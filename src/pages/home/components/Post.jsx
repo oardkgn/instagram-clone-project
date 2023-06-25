@@ -1,5 +1,12 @@
 import React from "react";
 import { GetIcon } from "../../../assets/icons";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { key } from "localforage";
 
 function Post({ post }) {
   return (
@@ -13,11 +20,21 @@ function Post({ post }) {
           <GetIcon className=" text-inactive_text" name="dots" />
         </button>
       </div>
-      <img
-        className=" w-full max-h-[600px] mx-auto"
-        src={post.images[0]}
-        alt=""
-      />
+      <Swiper
+        className="postsSwiper"
+        navigation={true}
+        slidesPerView={1}
+        pagination={true}
+        modules={[Pagination,Navigation]}
+      >
+        {post.images.map((img,key) => {
+          return (
+            <SwiperSlide key={key}>
+              <img src={img} className="w-full max-h-[600px] mx-auto" />
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
       <div className=" h-10 flex items-center gap-4 mt-1">
         <button>
           <GetIcon name="notify" />
@@ -34,22 +51,29 @@ function Post({ post }) {
       </div>
       <div>
         <div className=" mb-1 mt-2">{post.likes} likes</div>
-      
-          
-            <div>
-              <p className="mb-1">
-                <span className=" font-semibold text-sm mr-1">{post.comments[0].from}</span>{" "}
-                <span className=" text-sm mr-1">{post.comments[0].comment}</span>
-                <button className=" block text-sm text-inactive_text">View all {post.comments.length} comments</button>
-              </p>
-            </div>
 
-            <div className=" flex  mt-2">
-            <input type="text" placeholder=" Add a comment..." className=" text-sm placeholder:text-sm placeholder:-ml-4 outline-none flex-1" />
-            <button><GetIcon size={12} name="emoji"/></button>
-            </div>
-         
-       
+        <div>
+          <p className="mb-1">
+            <span className=" font-semibold text-sm mr-1">
+              {post.comments[0].from}
+            </span>{" "}
+            <span className=" text-sm mr-1">{post.comments[0].comment}</span>
+            <button className=" block text-sm text-inactive_text">
+              View all {post.comments.length} comments
+            </button>
+          </p>
+        </div>
+
+        <div className=" flex  mt-2">
+          <input
+            type="text"
+            placeholder=" Add a comment..."
+            className=" text-sm placeholder:text-sm placeholder:-ml-4 outline-none flex-1"
+          />
+          <button>
+            <GetIcon size={12} name="emoji" />
+          </button>
+        </div>
       </div>
     </div>
   );

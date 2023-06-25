@@ -196,6 +196,7 @@ function SideBar() {
                     to={`/${user.username}`}
                     onClick={() => {
                       setNav("profile");
+                      setMsgBar(false)
                     }}
                     className=" group hover:bg-gray-100 transition-all px-3 items-center  py-3 rounded-md flex flex-shrink-0 gap-4"
                   >

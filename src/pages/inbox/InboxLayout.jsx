@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ChatsBar from "./chatsBar.jsx";
+import ChatsBar from "./ChatsBar.jsx";
 import { Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -54,12 +54,12 @@ function InboxLayout() {
   ]);
 
   return (
-    <div className=" flex h-full w-full">
+    <div className=" overflow-y-hidden flex h-full w-full">
       <Helmet>
         <title>Inbox • Direct</title>
       </Helmet>
       <ChatsBar chats={chats} />
-      <div className=" w-full">
+      <div className=" max-w-[calc(100vw-110px)] mobileForm:w-full">
         <Outlet  context={[chats]} />
       </div>
     </div>

@@ -1,10 +1,18 @@
-import React from 'react'
+
 import { GetIcon } from '../assets/icons'
 import {IoIosCloseCircle} from 'react-icons/io'
+
+
+
  
 function UpperBar() {
-  return (
-    <div className=' h-[60px] w-full border-b border-inactive_line flex items-center bg-white'>
+
+
+
+
+
+    return (
+      <div className=' h-[60px] w-full border-b border-inactive_line flex items-center bg-white'>
         <div className='pl-4 flex gap-2'>
         <GetIcon name="instagram" size={103} /> 
         <button className=' -mt-1'>
@@ -24,7 +32,7 @@ function UpperBar() {
             </button>
         </div>
     </div>
-  )
-}
+ 
+    )}
 
 export default UpperBar

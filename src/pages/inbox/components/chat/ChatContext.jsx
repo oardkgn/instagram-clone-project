@@ -1,9 +1,7 @@
 import classNames from "classnames";
-import { key } from "localforage";
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import ScrollToBottom from 'react-scroll-to-bottom';
-import { useScrollToBottom } from "react-scroll-to-bottom";
 
 function ChatContext({ messages }) {
 
